@@ -1,4 +1,4 @@
-import Layout from '../layouts/index.js'
+import Layout from '../layouts'
 
 import { TitleMd } from '../components/typography'
 
