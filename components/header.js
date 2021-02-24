@@ -77,7 +77,7 @@ const StyledHeader = styled.header`
         nav {
             height: 100%;
             padding-left: calc((${p => p.innerPx}rem) / 1.5);
-            padding-right: calc((${p => p.innerPx}rem) / 2);
+            padding-right: calc((${p => p.innerPx}rem) / 2.5);
             padding-top: 0.5rem;
             padding-bottom: 0.5rem;
             .leading, .trailing {
@@ -97,7 +97,7 @@ const StyledHeader = styled.header`
             }
             .trailing {
                 .hamburger-menu {
-                    margin-left: 0.75rem;
+                    margin-left: 0.5rem;
                     display: flex;
                 }
             }
@@ -205,7 +205,7 @@ const Header = ({ px, innerPx, navItems, trailing, sideMenuItems }) => {
                         <div className="trailing">
                             {trailing}
                             <div className="hamburger-menu">
-                                <Button onClick={() => setOpen(!open)} variant="secondary"><Icon icon="menu" /></Button>
+                                <Button onClick={() => setOpen(!open)} variant="tertiary"><Icon icon="menu" /></Button>
                             </div>
                         </div>
                     )}

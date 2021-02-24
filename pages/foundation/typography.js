@@ -1,7 +1,5 @@
 import styled from '@emotion/styled'
 
-import { TabPanel } from '@reach/tabs'
-
 import { v4 as uuidv4 } from 'uuid';
 
 import DocTemplate from '../../layouts/docTemplate'

@@ -59,7 +59,7 @@ const StyledLayout = styled.div`
             left: var(--sideMenuWidth);
             right: 0;
             padding: 4rem;
-            overflow-y: scroll;
+            /* overflow-y: scroll; */
         }
     }
     footer {
@@ -94,7 +94,7 @@ const Layout = ({ title, description, children, sideMenuItems }) => {
             label: 'Components',
         },
         {
-            href: '/examples',
+            href: '#',
             label: 'Examples',
         },
     ]

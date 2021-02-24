@@ -21,12 +21,12 @@ const PageIntro = styled.div`
     }
 `
 
-const components = {
-    img: Image,
-    h1: SubtitleLg,
-    h2: Subtitle,
-    p: Body,
-}
+// const components = {
+//     img: Image,
+//     h1: SubtitleLg,
+//     h2: Subtitle,
+//     p: Body,
+// }
 
 const DocTemplate = ({ title, description, children }) => {
 
@@ -40,15 +40,15 @@ const DocTemplate = ({ title, description, children }) => {
             label: 'Typography',
         },
         {
-            href: '/iconography',
+            href: 'iconography',
             label: 'Iconography',
         },
         {
-            href: '/design-tokens',
+            href: 'design-tokens',
             label: 'Design Tokens',
         },
         {
-            href: '/layout-grid',
+            href: 'layout-grid',
             label: 'Layout Grid',
         },
     ]
