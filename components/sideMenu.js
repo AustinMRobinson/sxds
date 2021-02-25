@@ -32,7 +32,7 @@ const SideMenuItem = styled.a`
 
 const StyledSideMenu = styled.aside`
     width: var(--sideMenuWidth);
-    position: fixed;
+    position: ${p => p.position === 'static' ? 'static' : 'fixed'};
     top: var(--headerHeight);
     left: 0;
     bottom: 0;
@@ -47,12 +47,12 @@ const StyledSideMenu = styled.aside`
     }
 `
 
-const SideMenu = ({ sideMenuItems }) => {
+const SideMenu = ({ sideMenuItems, position }) => {
 
     const router = useRouter();
 
     return (
-        <StyledSideMenu>
+        <StyledSideMenu position={position}>
             {sideMenuItems && (
                 <nav>
                     {sideMenuItems.map(menuItem => (

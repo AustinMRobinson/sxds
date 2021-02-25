@@ -52,45 +52,41 @@ const ComponentDocTemplate = ({ title, description, children, component, tabs })
             label: 'Button',
         },
         {
-            href: '#',
+            href: 'header',
             label: 'Header',
         },
+        // {
+        //     href: '#',
+        //     label: 'Footer',
+        // },
         {
-            href: '#',
-            label: 'Footer',
-        },
-        {
-            href: '#',
+            href: 'list',
             label: 'List',
         },
         {
             href: '#',
             label: 'Modal',
         },
+        // {
+        //     href: '#',
+        //     label: 'Pagination',
+        // },
+        // {
+        //     href: '#',
+        //     label: 'Select',
+        // },
         {
-            href: '#',
-            label: 'Header',
-        },
-        {
-            href: '#',
-            label: 'Pagination',
-        },
-        {
-            href: '#',
-            label: 'Select',
-        },
-        {
-            href: '#',
+            href: 'side-menu',
             label: 'Side Menu',
         },
         {
-            href: '#',
+            href: 'tabs',
             label: 'Tabs',
         },
-        {
-            href: '#',
-            label: 'Text Field',
-        },
+        // {
+        //     href: '#',
+        //     label: 'Text Field',
+        // },
     ]
 
     return (
@@ -118,9 +114,11 @@ const ComponentDocTemplate = ({ title, description, children, component, tabs })
     
                 <Row>
                     <Col xs={12} lg={10} xl={8}>
-                        <TabGroup tabItems={tabs}>
+                        {tabs && (<TabGroup tabItems={tabs}>
                             {children}
                         </TabGroup>
+                        )}
+                        {children}
                     </Col>
                 </Row>
 

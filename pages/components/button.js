@@ -333,7 +333,7 @@ const ButtonPage = () => {
             >
 
             <Content>
-                <TabPanel class="how-to-use">
+                <TabPanel className="how-to-use">
                     <Row>
                         <Col xs={12}>
                             <SubtitleLg as="h2">How to use</SubtitleLg>
@@ -349,7 +349,7 @@ const ButtonPage = () => {
                     ))}
                 </TabPanel>
 
-                <TabPanel class="design">
+                <TabPanel className="design">
                     <Row>
                         <Col xs={12}>
                             <SubtitleLg as="h2">Figma component</SubtitleLg>
@@ -363,7 +363,7 @@ const ButtonPage = () => {
                     </Row>
                 </TabPanel>
 
-                <TabPanel class="development">
+                <TabPanel className="development">
                     <Row>
                         <Col xs={12}>
                             <SubtitleLg as="h2">Component demos</SubtitleLg>

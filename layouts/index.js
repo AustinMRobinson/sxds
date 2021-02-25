@@ -66,12 +66,18 @@ const StyledLayout = styled.div`
     }
     @media screen and (max-width: 996px) {
         .content {
+            position: relative;
+            overflow: auto;
+            top: var(--headerHeight);
             main {
+                position: relative;
+                top: 0;
                 padding: 3rem 2.5rem;
+                overflow: auto;
             }
         }
     }
-    @media screen and (max-width: 996px) {
+    @media screen and (max-width: 768px) {
         .content {
             main {
                 padding: 2rem 0.5rem;

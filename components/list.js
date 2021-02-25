@@ -10,6 +10,9 @@ const StyledListItem = styled.li`
     &:not(:last-of-type) {
         border-bottom: 1px solid var(--lightBackground);
     }
+    .leading {
+        margin-right: 1rem;
+    }
 `
 
 export const ListItem = ({ leading, trailing }) => {
@@ -28,6 +31,7 @@ const StyledList = styled.ul`
     display: flex;
     flex-direction: column;
     margin: 0;
+    min-width: ${p => p.minWidth};
     list-style-type: none;
     padding: 0.125rem 0.75rem;
     background: var(--mediumBackground);
@@ -55,9 +59,9 @@ const StyledList = styled.ul`
     }
 `
 
-export const List = ({ children }) => {
+export const List = ({ children, minWidth }) => {
     return (
-        <StyledList>
+        <StyledList minWidth={minWidth}>
             {children}
         </StyledList>
     )

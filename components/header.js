@@ -35,7 +35,7 @@ const StyledHeader = styled.header`
     /* background: var(--mediumBackground); */
     height: var(--headerHeight);
     backdrop-filter: blur(var(--blur2));
-    position: fixed;
+    position: ${p => p.position === 'static' ? 'static' : 'fixed'};
     z-index: 10;
     top: 0;
     left: 0;
@@ -168,7 +168,7 @@ const MobileMenu = styled.div`
     }
 `
 
-const Header = ({ px, innerPx, navItems, trailing, sideMenuItems }) => {
+const Header = ({ px, innerPx, navItems, trailing, sideMenuItems, position }) => {
 
     const [open, setOpen] = useState(false);
 
@@ -185,7 +185,7 @@ const Header = ({ px, innerPx, navItems, trailing, sideMenuItems }) => {
 
     return (
         <div className="header-wrapper">
-            <StyledHeader px={px} innerPx={innerPx}>
+            <StyledHeader px={px} innerPx={innerPx} position={position}>
                 <nav>
                     <div className="leading">
                         <Link href="/foundation/colors" passHref><a>
