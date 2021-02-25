@@ -46,18 +46,16 @@ const StyledLayout = styled.div`
     min-height: 100vh;
     position: relative;
     .content {
-        position: relative;
-        top: 0;
-        left: 0;
-        right: 0;
         flex-grow: 1;
         display: flex;
         overflow-x: hidden;
         main {
             top: var(--headerHeight);
-            position: absolute;
+            position: fixed;
             left: var(--sideMenuWidth);
             right: 0;
+            bottom: 0;
+            overflow-y: scroll;
             padding: 4rem;
             /* overflow-y: scroll; */
         }

@@ -61,13 +61,15 @@ const StyledButton = styled('button')(
                         100% calc(100% - 0.575rem), calc(100% - 0.575rem) 100%,
                         0px 100%, 0% calc(100% - 0.575rem))`,
                 },
-                '&:hover, &:focus': {
-                    'span': {
-                        opacity: 0.8,
+                '@media (hover: hover)': {
+                    '&:hover, &:focus': {
+                        'span': {
+                            opacity: 0.8,
+                        },
+                        '&:after': {
+                            background: 'var(--lightestForeground)',
+                        }
                     },
-                    '&:after': {
-                        background: 'var(--lightestForeground)',
-                    }
                 },
                 '&:active': {
                     '&:after': {
@@ -105,18 +107,17 @@ const StyledButton = styled('button')(
                         100% calc(100% - 0.5rem), calc(100% - 0.5rem) 100%,
                         0px 100%, 0% calc(100% - 0.5rem))`,
                 },
-                '&:hover, &:focus': {
-                    '&:before': {
-                        opacity: 0.9,
-                        left: '1.5px',
-                        right: '1.75px',
-                        top: '2px',
-                        bottom: '1.75px',
-                    },
-                    '&:after': {
-
+                '@media (hover: hover)': {
+                    '&:hover, &:focus': {
+                        '&:before': {
+                            opacity: 0.9,
+                            left: '1.5px',
+                            right: '1.75px',
+                            top: '2px',
+                            bottom: '1.75px',
+                        },
                     }
-                }
+                },
             },
             tertiary: {
                 padding: '0.75rem 0.75rem',
@@ -134,10 +135,12 @@ const StyledButton = styled('button')(
                         100% calc(100% - 0.5rem), calc(100% - 0.5rem) 100%,
                         0px 100%, 0% calc(100% - 0.5rem))`,
                 },
-                '&:hover, &:focus': {
-                    '&:before': {
-                        background: 'var(--lightBackground)',
-                    }
+                '@media (hover: hover)': {
+                    '&:hover, &:focus': {
+                        '&:before': {
+                            background: 'var(--lightBackground)',
+                        }
+                    },
                 },
                 '&:active': {
                     '&:before': {
