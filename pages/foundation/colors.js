@@ -248,6 +248,7 @@ const Colors = () => {
         <DocTemplate
             title="Colors"
             description="The system colors used in the SpaceX design system. These are called system colors because they are abstracted variables that give light, dark, and space mode out of the box."
+            currentURL="foundation/colors"
             >
             <TabGroup tabItems={tabs}>
                 <TabPanel>

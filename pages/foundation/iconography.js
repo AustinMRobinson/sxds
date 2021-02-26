@@ -68,6 +68,7 @@ const Iconography = () => {
         <DocTemplate
             title="Iconography"
             description="The iconography used in the SpaceX design system. There are two styles: system and small."
+            currentURL="/foundation/iconography"
             >
             <IconographySection id="iconography">
                 <div className="system">

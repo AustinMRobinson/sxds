@@ -191,10 +191,8 @@ const Example = ({ image, caption, type }) => {
 
 const StyledDemo = styled.div`
     margin: 1rem 0;
-    .preview, .editor {
-        background: var(--mediumBackground);
-    }
     .preview {
+        background: var(--mediumBackground);
         padding: 2.5rem;
         border-bottom: 1px solid var(--lightestBackground);
         min-height: 8rem;
@@ -204,6 +202,7 @@ const StyledDemo = styled.div`
     }
     .editor {
         padding: 1.5rem;
+        background: #0d0d0d;
     }
     @media screen and (max-width: 768px) {
         .editor {
@@ -328,6 +327,7 @@ const ButtonPage = () => {
         <ComponentDocTemplate
             title="Button"
             description="Buttons are used to perform an action. The action to be performed is indicated by the button’s label and/or it’s icon."
+            currentURL="/components/button"
             tabs={tabs}
             component={(<Button variant="primary">Button Label</Button>)}
             >

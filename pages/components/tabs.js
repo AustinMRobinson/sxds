@@ -22,7 +22,8 @@ const TabsPage = () => {
     return (
         <ComponentDocTemplate
             title="Tabs"
-            description="A side menu is a secondary form of navigation that is used alongside a Header in SXDS. It is only visible on large breakpoints."
+            description="Tabs are used as a form of navigation that works well within inline content. It shows tabs of content based on the selected item."
+            currentURL="/components/tabs"
             component={(
                 <TabGroup tabItems={tabs}>
                     {tabs.map(tab => (

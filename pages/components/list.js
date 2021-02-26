@@ -8,6 +8,7 @@ const ListPage = () => {
         <ComponentDocTemplate
             title="List"
             description="Lists are helpful when needing to display a list of information."
+            currentURL="/components/list"
             component={(
                 <List minWidth="50%">
                     {[...Array(5)].map((x, i) => 

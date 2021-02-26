@@ -349,6 +349,7 @@ const Tokens = () => {
         <DocTemplate
             title="Design Tokens"
             description="Design tokens make up the single source of truth for the entire system. These constants are used to keep consistency across design and development and can be abstracted to any platform."
+            currentURL="/foundation/design-tokens"
             >
             <TokensSection>
 

@@ -45,10 +45,18 @@ const StyledLayout = styled.div`
     flex-direction: column;
     min-height: 100vh;
     position: relative;
-    .content {
+    .content, .secondary-content {
         flex-grow: 1;
         display: flex;
-        overflow-x: hidden;
+        top: var(--headerHeight);
+        position: relative;
+        main {
+            width: 100%;
+            padding: 4rem;
+            position: static;
+        }
+    }
+    .content {
         main {
             top: var(--headerHeight);
             position: fixed;
@@ -64,6 +72,13 @@ const StyledLayout = styled.div`
         position: relative;
         top: var(--headerHeight);
     }
+    @media screen and (max-width: 1200px) {
+        .secondary-content {
+            main {
+                padding: 3.5rem 3rem;
+            }
+        }
+    }
     @media screen and (max-width: 996px) {
         .content {
             position: relative;
@@ -76,6 +91,11 @@ const StyledLayout = styled.div`
                 overflow: auto;
             }
         }
+        .secondary-content {
+            main {
+                padding: 3rem 2rem;
+            }
+        }
     }
     @media screen and (max-width: 768px) {
         .content {
@@ -83,10 +103,17 @@ const StyledLayout = styled.div`
                 padding: 2rem 0.5rem;
             }
         }
+        .secondary-content {
+            main {
+                padding: 2.5rem 1rem;
+            }
+        }
     }
 `
 
-const Layout = ({ title, description, children, sideMenuItems }) => {
+const Layout = ({ title, description, currentURL, children, sideMenuItems }) => {
+
+    const previewImage = "/static/images/spacexds-og-image.jpg"
 
     const navItems = [
         {
@@ -98,18 +125,34 @@ const Layout = ({ title, description, children, sideMenuItems }) => {
             label: 'Components',
         },
         {
-            href: '#',
-            label: 'Examples',
+            href: '/resources',
+            label: 'Resources',
         },
     ]
 
     return (
         <>
             <Head>
-                <title>{title} // SpaceX Design System</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta charSet="utf-8" />
+
+                {/* General */}
+                <title>{title} / SpaceX Design System</title>
                 <meta name="description" content={description} />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <link rel="icon" href="/favicon.ico" />
+
+                {/* Open Graph */}
+                <meta property="og:url" content={`https://spacexds.vercel.app/${currentURL}`} key="ogurl" />
+                <meta property="og:image" content={previewImage} key="ogimage" />
+                <meta property="og:site_name" content="SpaceX Design System" key="ogsitename" />
+                <meta property="og:title" content={title} key="ogtitle" />
+                <meta property="og:description" content={description} key="ogdesc" />
+
+                {/* Favicon */}
+                <link rel="icon" type="image/png" href="/static/images/spacexds-favicon-16.png" sizes="16x16" />
+                <link rel="icon" type="image/png" href="/static/images/spacexds-favicon-32.png" sizes="32x32" />
+                <link rel="icon" type="image/png" href="/static/images/spacexds-favicon-96.png" sizes="96x96" />
+
+                {/* Loading assets */}
                 <link rel="preload" href="/fonts/d-din/D-DIN.woff" as="font" crossOrigin="" />
                 <link rel="preload" href="/fonts/d-din/D-DIN-Italic.woff" as="font" crossOrigin="" />
                 <link rel="preload" href="/fonts/d-din/D-DIN-Bold.woff" as="font" crossOrigin="" />
@@ -119,12 +162,22 @@ const Layout = ({ title, description, children, sideMenuItems }) => {
             </Head>
             <StyledLayout>
                 <Header innerPx={2} navItems={navItems} sideMenuItems={sideMenuItems} trailing={ <ThemeToggler /> } />
-                <div className="content">
-                    <SideMenu sideMenuItems={sideMenuItems} />
-                    <main>
-                        { children }
-                    </main>
-                </div>
+                {sideMenuItems
+                    ? (
+                        <div className="content">
+                            <SideMenu sideMenuItems={sideMenuItems} />
+                            <main>
+                                { children }
+                            </main>
+                        </div>
+                    )
+                    : (
+                        <div className="secondary-content">
+                            <main>
+                                { children }
+                            </main>
+                        </div>
+                    )}
                 {/* <footer>Footer</footer> */}
             </StyledLayout>
         </>

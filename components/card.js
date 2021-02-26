@@ -8,7 +8,7 @@ const StyledCard = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0;
-    padding: 1rem;
+    padding: ${p => p.p ? p.p : '1'}rem;
     background: var(--mediumBackground);
     backdrop-filter: blur(var(--blur2));
     border-top: 1px solid var(--lightestBackground);
@@ -32,11 +32,14 @@ const StyledCard = styled.div`
     &:after {
         right: 0;
     }
+    @media screen and (max-width: 1200px) {
+        padding: calc(${p => p.p ? p.p : '1'}rem / 2);
+    }
 `
 
-const Card = ({ children, className }) => {
+const Card = ({ children, className, p }) => {
     return (
-        <StyledCard className="card-wrapper">
+        <StyledCard className="card-wrapper" p={p}>
             {children}
         </StyledCard>
     )

@@ -28,7 +28,7 @@ const PageIntro = styled.div`
 //     p: Body,
 // }
 
-const DocTemplate = ({ title, description, children }) => {
+const DocTemplate = ({ title, description, children, currentURL }) => {
 
     const sideMenuItems = [
         {
@@ -47,14 +47,10 @@ const DocTemplate = ({ title, description, children }) => {
             href: 'design-tokens',
             label: 'Design Tokens',
         },
-        {
-            href: 'layout-grid',
-            label: 'Layout Grid',
-        },
     ]
 
     return (
-        <Layout title={title} description={description} sideMenuItems={sideMenuItems}>
+        <Layout title={title} description={description} currentURL={currentURL} sideMenuItems={sideMenuItems}>
             <Container fluid>
 
                 <Row>

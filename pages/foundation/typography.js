@@ -157,6 +157,7 @@ const Typography = () => {
         <DocTemplate
             title="Typography"
             description="The web typography styles used in the SpaceX design system. The styles here are responsive by default, with 3 different sizes spanning the responsive breakpoints."
+            currentURL="/foundation/typography"
             >
             <TypographySection id="typopgraphy">
                 <List>

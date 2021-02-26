@@ -44,7 +44,7 @@ const CardWrapper = styled.div`
 `
 
 
-const ComponentDocTemplate = ({ title, description, children, component, tabs }) => {
+const ComponentDocTemplate = ({ title, description, currentURL, children, component, tabs }) => {
 
     const sideMenuItems = [
         {
@@ -90,7 +90,7 @@ const ComponentDocTemplate = ({ title, description, children, component, tabs })
     ]
 
     return (
-        <Layout title={title} description={description} sideMenuItems={sideMenuItems}>
+        <Layout title={title} description={description} currentURL={currentURL} sideMenuItems={sideMenuItems}>
             <Container fluid>
 
                 <Top>
