@@ -113,7 +113,7 @@ const StyledLayout = styled.div`
 
 const Layout = ({ title, description, currentURL, children, sideMenuItems }) => {
 
-    const previewImage = "/static/images/spacexds-og-image.jpg"
+    const previewImage = "/images/spacexds-og-image.jpg"
 
     const navItems = [
         {
@@ -148,9 +148,9 @@ const Layout = ({ title, description, currentURL, children, sideMenuItems }) => 
                 <meta property="og:description" content={description} key="ogdesc" />
 
                 {/* Favicon */}
-                <link rel="icon" type="image/png" href="/static/images/spacexds-favicon-16.png" sizes="16x16" />
-                <link rel="icon" type="image/png" href="/static/images/spacexds-favicon-32.png" sizes="32x32" />
-                <link rel="icon" type="image/png" href="/static/images/spacexds-favicon-96.png" sizes="96x96" />
+                <link rel="icon" type="image/png" href="/images/spacexds-favicon-16.png" sizes="16x16" />
+                <link rel="icon" type="image/png" href="/images/spacexds-favicon-32.png" sizes="32x32" />
+                <link rel="icon" type="image/png" href="/images/spacexds-favicon-96.png" sizes="96x96" />
 
                 {/* Loading assets */}
                 <link rel="preload" href="/fonts/d-din/D-DIN.woff" as="font" crossOrigin="" />
