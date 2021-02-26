@@ -36,6 +36,7 @@ const StyledHeader = styled.header`
     height: var(--headerHeight);
     backdrop-filter: blur(var(--blur2));
     position: ${p => p.position === 'static' ? 'static' : 'fixed'};
+    background: var(--veryLightBackgroundInverse);
     z-index: 10;
     top: 0;
     left: 0;
@@ -115,7 +116,7 @@ const MobileMenu = styled.div`
     display: none;
     flex-direction: column;
     text-align: center;
-    background: var(--mediumBackgroundInverse);
+    background: var(--veryLightBackgroundInverse);
     backdrop-filter: blur(var(--blur2));
     box-shadow: 0 0 2rem rgba(0,0,0,0.25);
     padding: 1rem 3rem;
