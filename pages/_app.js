@@ -165,7 +165,7 @@ function MyApp({ Component, pageProps }) {
             font-family: 'D-DIN', sans-serif;
             font-size: var(--fontSize2);
             line-height: var(--lineHeight1);
-            overflow: hidden;
+            /* overflow: hidden; */
           }
           a {
             text-decoration: none;

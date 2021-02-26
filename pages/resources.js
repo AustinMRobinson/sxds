@@ -29,19 +29,26 @@ const ResourceSection = styled.section`
             margin-bottom: 2rem;
             &:nth-of-type(5), &:nth-of-type(6) {
                 .card-wrapper {
-                    img {
-                        object-position: top center;
+                    .image-wrapper {
+                        img {
+                            object-position: top center;
+                        }
                     }
                 }
             }
         }
         .card-wrapper {
             height: 100%;
-            img {
+            .image-wrapper {
                 min-height: 14rem;
-                background: var(--mediumBackground);
-                object-fit: cover;
-                object-position: left top;
+                position: relative;
+                img {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: left top;
+                }
             }
             .bottom {
                 margin-top: 1.5rem;
@@ -90,7 +97,7 @@ const ResourceSection = styled.section`
                 margin-bottom: 1.25rem;
             }
             .card-wrapper {
-                img {
+                .image-wrapper {
                     min-height: 12rem;
                 }
                 .bottom {
@@ -177,7 +184,9 @@ const Resources = () => {
                                 <Col key={uuidv4()} xs={12} md={6} lg={4} xl={3} className="resource-col">
                                     <div className="card-wrapper">
                                         <Card p="2">
-                                            <img src={resource.image} alt={resource.imageAlt}/>
+                                            <div className="image-wrapper">
+                                                <Image layout="fill" src={resource.image} alt={resource.imageAlt}/>
+                                            </div>
                                             <div className="bottom">
                                                 <div className="title-subtitle">
                                                     <SubtitleLg as="h2">{resource.title}</SubtitleLg>
