@@ -55,16 +55,16 @@ const ComponentDocTemplate = ({ title, description, currentURL, children, compon
             href: 'header',
             label: 'Header',
         },
-        // {
-        //     href: '#',
-        //     label: 'Footer',
-        // },
+        {
+            href: 'footer',
+            label: 'Footer',
+        },
         {
             href: 'list',
             label: 'List',
         },
         {
-            href: '#',
+            href: 'modal',
             label: 'Modal',
         },
         // {

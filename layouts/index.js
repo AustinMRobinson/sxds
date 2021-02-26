@@ -1,43 +1,72 @@
-import * as React from 'react'
+import { useContext } from 'react'
 import Head from "next/head";
 
 import styled from '@emotion/styled'
-import { MDXProvider } from '@mdx-js/react'
+// import { MDXProvider } from '@mdx-js/react'
+import { ThemeContext } from 'use-theme-switcher';
 
 import Button from '../components/button'
 import Header from '../components/header'
 import SideMenu from '../components/sideMenu';
 import Icon from '../components/icon';
 
+const ThemeToggler = ({ theme, setTheme }) => {
 
-const ThemeToggler = () => {
-    const [theme, setTheme] = React.useState('dark')
+    // const [theme, setTheme] = React.useState('dark')
     // const nextTheme = theme === 'dark' ? 'light' : 'dark'
 
-    var nextTheme = theme
-    switch (nextTheme) {
-        case 'dark':
-            nextTheme = 'light';
-            break;
-        case 'light':
-            nextTheme = 'void';
-            break;
-        case 'space':
-            nextTheme = 'dark';
-            break;
-        default: 
-            nextTheme = 'dark';
+    // var nextTheme = theme
+    // switch (nextTheme) {
+    //     case 'dark':
+    //         nextTheme = 'light';
+    //         break;
+    //     case 'light':
+    //         nextTheme = 'void';
+    //         break;
+    //     case 'space':
+    //         nextTheme = 'dark';
+    //         break;
+    //     default: 
+    //         nextTheme = 'dark';
+    // }
+
+    // React.useEffect(() => {
+    //     document.body.dataset.theme = theme
+    // }, [theme])
+
+    const myThemes = [
+        {
+            id: "theme-dark",
+            name: "Dark",
+        },
+        {
+            id: "theme-light",
+            name: "Light",
+        },
+        {
+            id: "theme-void",
+            name: "Void",
+        }
+    ]
+
+    if (theme) {
+        return (
+            <>
+                {myThemes.map((item, index) => {
+                const nextTheme = myThemes.length -1 === index ? myThemes[0].id : myThemes[index+1].id;
+                
+                return item.id === theme ? (
+                    <div key={item.id}>
+                        <Button variant="tertiary" onClick={() => setTheme(nextTheme)}>
+                            <Icon icon="sun" />
+                        </Button>
+                    </div>
+                ) : null;
+                    }
+                )}
+            </>
+        )
     }
-
-    React.useEffect(() => {
-        document.body.dataset.theme = theme
-    }, [theme])
-
-    return (
-        <Button variant="tertiary" onClick={() => setTheme(nextTheme)}>
-            <Icon icon="sun" />
-        </Button>
-    )
 }
 
 const StyledLayout = styled.div`
@@ -58,6 +87,7 @@ const StyledLayout = styled.div`
     }
     .content {
         main {
+            width: calc(100% - var(--sideMenuWidth));
             top: var(--headerHeight);
             position: fixed;
             left: var(--sideMenuWidth);
@@ -85,6 +115,7 @@ const StyledLayout = styled.div`
             overflow: auto;
             top: var(--headerHeight);
             main {
+                width: 100%;
                 position: relative;
                 top: 0;
                 padding: 3rem 2.5rem;
@@ -112,6 +143,8 @@ const StyledLayout = styled.div`
 `
 
 const Layout = ({ title, description, currentURL, children, sideMenuItems }) => {
+
+    const { theme, switchTheme } = useContext(ThemeContext);
 
     const previewImage = "/images/spacexds-og-image.jpg"
 
@@ -161,7 +194,12 @@ const Layout = ({ title, description, currentURL, children, sideMenuItems }) => 
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossOrigin="anonymous" />
             </Head>
             <StyledLayout>
-                <Header innerPx={2} navItems={navItems} sideMenuItems={sideMenuItems} trailing={ <ThemeToggler /> } />
+                <Header 
+                    innerPx={2}
+                    navItems={navItems}
+                    sideMenuItems={sideMenuItems}
+                    trailing={(<ThemeToggler theme={theme ? theme : 'theme-dark'} setTheme={switchTheme} /> )} 
+                />
                 {sideMenuItems
                     ? (
                         <div className="content">

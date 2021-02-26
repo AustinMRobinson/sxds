@@ -1,5 +1,6 @@
 import { Global, css } from '@emotion/react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ThemeProvider } from 'use-theme-switcher';
 
 
 function MyApp({ Component, pageProps }) {
@@ -8,23 +9,6 @@ function MyApp({ Component, pageProps }) {
       <Global
         styles={css`
           :root {
-            /* Colors */
-            --background: #000000;
-            --foregroundInverse: #000000;
-            --mediumBackgroundInverse: rgba(0,0,0,0.05);
-            --lightBackgroundInverse: rgba(0,0,0,0.10);
-            --lightestBackgroundInverse: rgba(0,0,0,0.20);
-            --mediumBackground: rgba(255,255,255,0.05);
-            --lightBackground: rgba(255,255,255,0.10);
-            --lightestBackground: rgba(255,255,255,0.20);
-            --lightestForeground: rgba(255,255,255,0.40);
-            --lightForeground: rgba(255,255,255,0.60);
-            --mediumForeground: rgba(255,255,255,0.80);
-            --foreground: #ffffff;
-            --negative: #f25353;
-            --warning: #f6954e;
-            --positive: #57da7c;
-
             /* Font sizes */
             --fontSize0: 0.75rem;
             --fontSize1: 0.875rem; 
@@ -78,7 +62,24 @@ function MyApp({ Component, pageProps }) {
             }
 
           }
-          [data-theme='light'] {
+          .theme-dark {
+            --background: #000000;
+            --foregroundInverse: #000000;
+            --mediumBackgroundInverse: rgba(0,0,0,0.05);
+            --lightBackgroundInverse: rgba(0,0,0,0.10);
+            --lightestBackgroundInverse: rgba(0,0,0,0.20);
+            --mediumBackground: rgba(255,255,255,0.05);
+            --lightBackground: rgba(255,255,255,0.10);
+            --lightestBackground: rgba(255,255,255,0.20);
+            --lightestForeground: rgba(255,255,255,0.40);
+            --lightForeground: rgba(255,255,255,0.60);
+            --mediumForeground: rgba(255,255,255,0.80);
+            --foreground: #ffffff;
+            --negative: #f25353;
+            --warning: #f6954e;
+            --positive: #57da7c;
+          }
+          .theme-light {
             /* Colors */
             --background: #ffffff;
             --foregroundInverse: #ffffff;
@@ -96,7 +97,7 @@ function MyApp({ Component, pageProps }) {
             --warning: #d96f22;
             --positive: #19ae43;
           }
-          [data-theme='void'] {
+          .theme-void {
             /* Colors */
             --background: #020738;
             --foregroundInverse: #020738;
@@ -175,7 +176,9 @@ function MyApp({ Component, pageProps }) {
           }
         `}
       />
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   )
 }
